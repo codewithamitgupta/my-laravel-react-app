@@ -359,9 +359,9 @@ export default function Project_View() {
                                 <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
                                 <div className="inline-block align-bottom bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                                     <div className="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
-                                        <h3 className="text-lg font-medium text-gray-900 mb-2">Create a Report</h3>
+                                        <h3 className="text-lg font-medium text-gray-900 mb-2 text-start">Create a Report</h3>
                                         <div className="mb-4">
-                                            <label htmlFor="report" className="block ">Report:</label>
+                                            <label htmlFor="report" className="block  text-start">Report:</label>
                                             <textarea
                                                 id="report"
                                                 className="w-full border border-gray-300 rounded-md px-3 py-2"
