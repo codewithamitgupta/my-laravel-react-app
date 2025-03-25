@@ -13,8 +13,8 @@ import Footer from './footer';
 export default function GuestNav() {
   return (
     <div className="App">
-      <nav className="bg-yellow-500 shadow-lg">
-        <div className="flex justify-between items-center py-3">
+      <nav className="bg-yellow-500 shadow-lg py-1 ">
+        <div className="flex justify-between items-center py-3 container mx-auto">
           <div>
             <Link to="/">
               <img src={require('./logo.png')} className="w-20 h-auto absolute mb-0 -mt-10" alt="DIYO Logo" />
@@ -28,7 +28,7 @@ export default function GuestNav() {
           </ul>
         </div>
       </nav>
-      <div className="container mx-auto">
+      <div className="">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path={`/project/:id`} element={<Project_View />} />

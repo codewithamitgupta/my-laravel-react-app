@@ -26,8 +26,8 @@ export default function User_Projects() {
     };
 
     return (
-        <div className="bg-yellow-50 pt-2 flex items-center justify-center min-h-screen">
-            <div className="w-4/5 sm:w-4/5 md:w-4/5 lg:w-4/5 backdrop-blur-sm bg-white/40 p-6 rounded-lg shadow-sm border-violet-200 border">
+        <div className="bg-yellow-50 flex items-center justify-center min-h-screen py-20">
+            <div className="w-4/5 sm:w-4/5 md:w-4/5 lg:w-4/5 backdrop-blur-sm bg-white/40">
                 <div className="flex justify-between items-center mb-6">
                     <h2 className="text-2xl font-semibold">My Projects</h2>
                     <button onClick={handleNewProjectClick} className="flex items-center bg-yellow-400 border border-fuchsia-00 hover:border-violet-100 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">
@@ -37,12 +37,12 @@ export default function User_Projects() {
                         <span>New Project</span>
                     </button>
                 </div>
-                <div className="grid grid-cols-1 gap-6">
+                <div className="grid grid-cols-4 gap-6">
                     {projects.length > 0 ? (
                         projects.map((project) => (
-                            <div key={project.projectID} className="bg-white rounded-lg overflow-hidden shadow-md border border-gray-200">
-                                <img className="w-full h-48 object-cover" src={`http://localhost:8000/${project.cover_image}`} alt="Project Cover" />
-                                <div className="p-6">
+                            <div key={project.projectID} className="bg-white rounded-lg shadow-md border border-gray-200">
+                                <img className="w-full h-3/4 object-cover" src={`http://localhost:8000/${project.cover_image}`} alt="Project Cover" />
+                                <div className="p-3">
                                     <h2 className="text-xl font-semibold mb-2">{project.project_title}</h2>
                                     <p className="text-gray-700 mb-4">{project.short_description}</p>
                                     <Link to={`/project/${project.projectID}/edit`} className="inline-block bg-yellow-400 hover:bg-yellow-500 text-white font-semibold py-2 px-4 rounded-md transition-colors duration-300">
