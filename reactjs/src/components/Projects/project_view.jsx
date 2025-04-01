@@ -302,51 +302,53 @@ export default function Project_View() {
                                 <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
                                 <div className="inline-block align-bottom bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                                     {/* Rewards Section */}
-                                    {console.log(project.reward)}
-                                    {project.rewards && project.rewards.length > 0 && (
+                                    {project.rewards && project.rewards.length > 0 ? (
                                         <div className="bg-yellow-400 opacity-80 p-4 rounded-lg mb-4">
-                                            <h2 className="text-lg font-semibold mb-2 text-white-600">Rewards</h2>
-                                            {console.log(project.rewards)}
-                                            {project.rewards.map((reward, index) => (
-                                                
-                                                <div key={index} className="bg-white rounded-lg p-4 shadow-md mb-4">
-                                                    <div className="mb-4">
-                                                        <p className="font-semibold test">Title:</p>
-                                                        <p>{reward.title}</p>
-                                                    </div>
-                                                    <div className="mb-4 flex justify-center items-center">
-                                                        {/* <p className="font-semibold">Image:</p> */}
-                                                        <img src={`http://localhost:8000/${reward.reward_image}`} alt="Reward Image" className="w-40 h-40 rounded" />
-                                                    </div>
-                                                    <div className="mb-4">
-                                                        <p className="font-semibold">Description:</p>
-                                                        <p>{reward.description}</p>
-                                                    </div>
-                                                    <div className="mb-4">
-                                                        <p className="font-semibold">Amount:</p>
-                                                        <p>{reward.minimumamount}</p>
-                                                    </div>
-                                                    <div className="mb-4">
-                                                        <p className="font-semibold">Delivery:</p>
-                                                        <p>{reward.estimated_delivery}</p>
-                                                    </div>
-                                                    <button onClick={() => investPay(reward)} className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-8 rounded w-full mb-2 md:mb-0 md:mr-2">
-                                                        Get
-                                                    </button>
-                                                </div>
-                                            ))}
+                                        <h2 className="text-lg font-semibold mb-2 text-white-600">Rewards</h2>
+                                        {project.rewards.map((reward, index) => (
+                                            <div key={index} className="bg-white rounded-lg p-4 shadow-md mb-4">
+                                            <div className="mb-4">
+                                                <p className="font-semibold">Title:</p>
+                                                <p>{reward.title}</p>
+                                            </div>
+                                            <div className="mb-4 flex justify-center items-center">
+                                                <img src={`http://localhost:8000/${reward.reward_image}`} alt="Reward Image" className="w-40 h-40 rounded" />
+                                            </div>
+                                            <div className="mb-4">
+                                                <p className="font-semibold">Description:</p>
+                                                <p>{reward.description}</p>
+                                            </div>
+                                            <div className="mb-4">
+                                                <p className="font-semibold">Amount:</p>
+                                                <p>{reward.minimumamount}</p>
+                                            </div>
+                                            <div className="mb-4">
+                                                <p className="font-semibold">Delivery:</p>
+                                                <p>{reward.estimated_delivery}</p>
+                                            </div>
+                                            <button onClick={() => investPay(reward)} className="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-8 rounded w-full mb-2 md:mb-0 md:mr-2">
+                                                Get
+                                            </button>
+                                            </div>
+                                        ))}
+                                        </div>
+                                    ) : (
+                                        <div className="bg-yellow-400 opacity-80 p-4 rounded-lg mb-4">
+                                        <p className="text-lg font-semibold text-white-600">No rewards are available for this project at the moment.</p>
                                         </div>
                                     )}
+                                    
                                     <div className="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
                                         <button
-                                            type="button"
-                                            onClick={() => setShowModalInvest(false)}
-                                            className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
+                                        type="button"
+                                        onClick={() => setShowModalInvest(false)}
+                                        className="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-red-600 text-base font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500 sm:ml-3 sm:w-auto sm:text-sm"
                                         >
-                                            Close
+                                        Close
                                         </button>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     )
