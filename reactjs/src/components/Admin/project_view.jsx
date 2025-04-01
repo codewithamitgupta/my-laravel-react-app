@@ -35,8 +35,14 @@ export default function ProjectView() {
             setReports(response.data.reports);
         }
         ).catch((error) => {
-            console.log(error);
-        });
+            if (error.response) {
+              console.error('Server Error:', error.response.data);
+            } else if (error.request) {
+              console.error('No response from server:', error.request);
+            } else {
+              console.error('Error:', error.message);
+            }
+          });
     }, []);
 
     const handleNextImage = () => {
@@ -87,7 +93,7 @@ export default function ProjectView() {
                         <h5 className="text-lg font-semibold mb-4 text-center text-yellow-600"></h5>
                         <h5 className="text-lg font-semibold mb-4 text-center text-yellow-600">Project Deadline: {project.end_date}</h5>
                         <h5 className="text-lg font-semibold mb-4 text-center text-yellow-600">Cover Image:</h5>
-                        <img src={`http://localhost:8000/${project.cover_image}`} alt="Cover Image" className="object-cover w-full h-40 rounded" />
+                        <img src={`http://localhost:8000/${project.cover_image}`} alt="Cover Image" className="object-cover w-full h-60 rounded" />
                         <div className="bg-white p-4 rounded-lg mb-4">
                             <h2 className="text-lg font-semibold mb-2 text-yellow-600">Project Description</h2>
                             <p>{project.description}</p>
@@ -99,8 +105,8 @@ export default function ProjectView() {
                                     {project.images && project.images.length > 0 && (
                                         <img src={`http://localhost:8000/${project.images[currentImageIndex].image}`} alt="Project Image" className="object-contain w-full h-auto cursor-pointer" onClick={handleNextImage} />
                                     )}
-                                    <button className="absolute top-1/2 right-1 transform -translate-y-1/2 text-white font-bold py-2 px-4 rounded-full bg-gray-300" onClick={handleNextImage}>&rarr;</button>
-                                    <button className="absolute top-1/2 transform -translate-y-1/2 text-white font-bold py-2 px-4 rounded-full bg-gray-300" onClick={handlePrevImage}>&larr;</button>
+                                    {/* <button className="absolute top-1/2 right-1 transform -translate-y-1/2 text-white font-bold py-2 px-4 rounded-full bg-gray-300" onClick={handleNextImage}>&rarr;</button> */}
+                                    {/* <button className="absolute top-1/2 transform -translate-y-1/2 text-white font-bold py-2 px-4 rounded-full bg-gray-300" onClick={handlePrevImage}>&larr;</button> */}
                                 </div>
                             </div>
                         </div>
@@ -177,13 +183,14 @@ export default function ProjectView() {
                 </div>
             </div>
             <div className="p-2 rounded-lg mb-4 bg-gray-200">
-                <h2 className="text-3xl font-bold mb-4 text-center text-black-600">Project Reports</h2>
+                <h2 className="text-3xl font-bold mb-4 text-center text-black-600 test">Project Reports</h2>
                 <div className="grid grid-cols-2 gap-4">
+                {console.log(reports)}
                     {reports.length > 0 ? (
                         reports.map((report, index) => (
                             <div key={index} className="bg-white p-4 rounded-lg shadow-md">
                                 <h3 className="text-lg font-semibold mb-2 text-yellow-600">Reported By:<br />
-                                    UserID: {report.userID}<br />
+                                    UserID: {report.userid}<br />
                                     User: {report.user}</h3>
                                 <p>{report.report}</p>
                                 <p>Reported On: {report.created_at}</p>

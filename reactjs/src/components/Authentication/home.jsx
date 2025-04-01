@@ -91,10 +91,10 @@ export default function Home() {
                                             <p className="mb-1 text-sm text-neutral-600 dark:text-neutral-200">
                                                 {project.short_description}
                                             </p>
-                                            <p className="mb-1 text-sm text-neutral-600 dark:text-neutral-200">
+                                            <p className="mb-1 text-sm text-neutral-600 dark:text-neutral-200 font-bold">
                                                 Ending On : {project.end_date.split('T')[0]}
                                             </p>
-                                            <p className="mb-1 text-sm text-neutral-600 dark:text-neutral-200">
+                                            <p className="mb-1 text-sm text-neutral-600 dark:text-neutral-200 font-bold">
                                                 Goal: Rs. {project.funding_goal}
                                             </p>
                                         </div>

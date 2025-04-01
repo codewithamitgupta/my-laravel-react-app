@@ -41,7 +41,7 @@ export default function User_Projects() {
                     {projects.length > 0 ? (
                         projects.map((project) => (
                             <div key={project.projectID} className="bg-white rounded-lg shadow-md border border-gray-200">
-                                <img className="w-full h-3/4 object-cover" src={`http://localhost:8000/${project.cover_image}`} alt="Project Cover" />
+                                <img className="w-full object-cover" src={`http://localhost:8000/${project.cover_image}`} alt="Project Cover" />
                                 <div className="p-3">
                                     <h2 className="text-xl font-semibold mb-2">{project.project_title}</h2>
                                     <p className="text-gray-700 mb-4">{project.short_description}</p>

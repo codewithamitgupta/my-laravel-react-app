@@ -183,7 +183,7 @@ export default function Project_View() {
                                 <div className="bg-white rounded-lg shadow-md p-4 mt-4">
                                     {/* Progress Bar */}
                                     <div className="h-4 bg-gray-200 rounded-md mt-2">
-                                        <div className="h-full bg-green-500 rounded-md" style={{ width: `${fundingPercentage}%` }}></div>
+                                        <div className="h-full bg-green-500 rounded-md max-w-full" style={{ width: `${fundingPercentage}%` }}></div>
                                     </div>
                                     <div className="mt-4 mb-8 text-xl">
                                         <p className="font-semibold">Total Backers:</p>

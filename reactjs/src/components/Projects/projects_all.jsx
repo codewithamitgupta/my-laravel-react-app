@@ -77,10 +77,10 @@ export default function ProjectsAll() {
                                             <p className="mb-1 text-sm text-neutral-600 dark:text-neutral-200">
                                                 {project.short_description}
                                             </p>
-                                            <p className="mb-1 text-sm text-neutral-600 dark:text-neutral-200">
+                                            <p className="mb-1 text-sm text-neutral-600 dark:text-neutral-200 font-bold">
                                                 Ending On : {project.end_date.split('T')[0]}
                                             </p>
-                                            <p className="mb-1 text-sm text-neutral-600 dark:text-neutral-200">
+                                            <p className="mb-1 text-sm text-neutral-600 dark:text-neutral-200 font-bold">
                                                 Goal: Rs. {project.funding_goal}
                                             </p>
                                             <Link to={`/project/${project.projectID}`} className="block mt-4 bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-3 rounded focus:outline-none focus:ring focus:ring-blue-500">View Project</Link>
