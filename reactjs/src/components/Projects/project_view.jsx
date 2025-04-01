@@ -91,7 +91,7 @@ export default function Project_View() {
             {
                 "return_url": "http://localhost:3000/payment/",
                 "website_url": "http://localhost:3000/",
-                "amount": reward.amount * 100,
+                "amount": reward.minimumamount * 100,
                 "purchase_order_id": 'userid_' + user.id + '_projectid_' + project.projectID + "_rewarded_" + rewardID,
                 "purchase_order_name": 'rewarded_' + project.project_title,
                 "customer_info": {
@@ -302,17 +302,20 @@ export default function Project_View() {
                                 <span className="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
                                 <div className="inline-block align-bottom bg-white rounded-lg overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
                                     {/* Rewards Section */}
+                                    {console.log(project.reward)}
                                     {project.rewards && project.rewards.length > 0 && (
                                         <div className="bg-yellow-400 opacity-80 p-4 rounded-lg mb-4">
                                             <h2 className="text-lg font-semibold mb-2 text-white-600">Rewards</h2>
+                                            {console.log(project.rewards)}
                                             {project.rewards.map((reward, index) => (
+                                                
                                                 <div key={index} className="bg-white rounded-lg p-4 shadow-md mb-4">
                                                     <div className="mb-4">
-                                                        <p className="font-semibold">Title:</p>
+                                                        <p className="font-semibold test">Title:</p>
                                                         <p>{reward.title}</p>
                                                     </div>
-                                                    <div className="mb-4">
-                                                        <p className="font-semibold">Image:</p>
+                                                    <div className="mb-4 flex justify-center items-center">
+                                                        {/* <p className="font-semibold">Image:</p> */}
                                                         <img src={`http://localhost:8000/${reward.reward_image}`} alt="Reward Image" className="w-40 h-40 rounded" />
                                                     </div>
                                                     <div className="mb-4">
@@ -321,7 +324,7 @@ export default function Project_View() {
                                                     </div>
                                                     <div className="mb-4">
                                                         <p className="font-semibold">Amount:</p>
-                                                        <p>{reward.amount}</p>
+                                                        <p>{reward.minimumamount}</p>
                                                     </div>
                                                     <div className="mb-4">
                                                         <p className="font-semibold">Delivery:</p>

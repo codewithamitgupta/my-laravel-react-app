@@ -297,7 +297,7 @@ class UserController extends Controller
         $reward = Rewards::create([
             'title' => $request->title,
             'description' => $request->description,
-            'minimumamount' => $request->amount,
+            'minimumamount' => $request->minimumamount,
             'estimated_delivery' => $request->estimated_delivery,
             'projectID' => $request->projectID,
             'reward_image' => ''
